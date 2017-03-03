@@ -10,11 +10,12 @@ ui_print() {
 ui_print ""
 ui_print "###########################"
 ui_print "#    zardMi3 modded       #"
-ui_print "#    audahadi's modded    #"
-ui_print "#       file from         #"
-ui_print "#       forumber2's       #"
+ui_print "#   ElPerroVerde's(eaXier)#"
+ui_print "#     modded file from    #"
+ui_print "#  audahadi's modded file #"
+ui_print "#   from forumber2's      #"
 ui_print "#  Repartition script     #"
-ui_print "# Mi Pad for System 1.2G  #"
+ui_print "# Mi Pad for System stock #"
 ui_print "#        only!            #"
 ui_print "###########################"
 
@@ -36,8 +37,8 @@ ui_print ""
 	ui_print "Removing partitions...COMPLETED"
 	ui_print ""
 	ui_print "Creating new partitions..."
-	parted /dev/block/mmcblk0 mkpart primary 268MB 1606MB
-	parted /dev/block/mmcblk0 mkpart primary 1606MB 1611MB
+	parted /dev/block/mmcblk0 mkpart primary 268MB 940MB
+	parted /dev/block/mmcblk0 mkpart primary 940MB 1611MB
 	parted /dev/block/mmcblk0 name 26 APP
 	parted /dev/block/mmcblk0 name 27 AP1
 	ui_print "Creating new partitions...COMPLETED"
