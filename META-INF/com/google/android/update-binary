@@ -42,9 +42,6 @@ ui_print ""
 	mke2fs -b 4096 -T ext4 /dev/block/mmcblk0p27
 	ui_print "Formatting new partitions...COMPLETED."
 	ui_print ""
-	ui_print "Restoring mmcblk0p25 - BKE"
-	ui_print ""
-	dd if=mmcblk0p25.img of=/dev/block/mmcblk0p25
 	ui_print "Rebooting to recovery in 5 seconds..."
 	sleep 5
 	reboot recovery
