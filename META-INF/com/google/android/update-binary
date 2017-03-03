@@ -7,38 +7,25 @@ ui_print() {
 	echo -n -e "ui_print\n" > /proc/self/fd/$OUTFD
 }
 
-ui_print ""
-ui_print "###########################"
-ui_print "#    zardMi3 modded       #"
-ui_print "#   ElPerroVerde's(eaXier)#"
-ui_print "#     modded file from    #"
-ui_print "#  audahadi's modded file #"
-ui_print "#   from forumber2's      #"
-ui_print "#  Repartition script     #"
-ui_print "# Mi Pad for System stock #"
-ui_print "#        only!            #"
-ui_print "###########################"
-
-ui_print ""
-ui_print "Unmounting systems partiton..."
-
 umount -l /system
 umount -l /system1
+umount -l /dev/block/mmcblk0p25
 umount -l /dev/block/mmcblk0p26
-umount -l /dev/block/mmcblk0p27
 
 ui_print ""
-	ui_print "WARNING! System is ready, repartitioning will start in 2 seconds"
+	ui_print "WARNING! Repartitioning will start in 2 seconds"
 	sleep 2
 	ui_print ""
 	ui_print "Removing partitions..."
+	parted /dev/block/mmcblk0 rm 25
 	parted /dev/block/mmcblk0 rm 26
-	parted /dev/block/mmcblk0 rm 27
 	ui_print "Removing partitions...COMPLETED"
 	ui_print ""
 	ui_print "Creating new partitions..."
+	parted /dev/block/mmcblk0 mkpart primary 264MB 268MB
 	parted /dev/block/mmcblk0 mkpart primary 268MB 940MB
 	parted /dev/block/mmcblk0 mkpart primary 940MB 1611MB
+	parted /dev/block/mmcblk0 name 25 BKE
 	parted /dev/block/mmcblk0 name 26 APP
 	parted /dev/block/mmcblk0 name 27 AP1
 	ui_print "Creating new partitions...COMPLETED"
@@ -58,7 +45,6 @@ ui_print ""
 	ui_print "ALL DONE!..."
 	ui_print ""
 	ui_print "Rebooting to recovery in 5 seconds..."
-	ui_print "Thanks to forumber2 for his original GT-i9300 repartition script"
 	sleep 5
 	reboot recovery
 fi
