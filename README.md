@@ -1,2 +1,1 @@
-# this is only to fix someone's tablet, do not use
-
+# this is only to fix someone's tablet !Do not use!
